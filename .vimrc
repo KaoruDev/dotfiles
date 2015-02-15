@@ -35,11 +35,12 @@ let g:user_emmet_expandabbr_key = '<S-tab>'
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_loaded = 0
 
+" Plugin to help comment blocks
+Plugin 'scrooloose/nerdcommenter'
+
 " Plugin for the nifty status bar
 Bundle 'bling/vim-airline'
 
-" Plugin to help comment blocks
-Plugin 'scrooloose/nerdcommenter'
 " Enable tabline extension
 let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -70,6 +71,12 @@ endif
 
 " Erase white space on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Map CTRL(hjkl) to switch panes easier
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
