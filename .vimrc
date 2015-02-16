@@ -1,4 +1,6 @@
 set nocompatible
+" Let VIM know the terminal can support 256 colors
+set t_Co=256
 filetype plugin on
 colorscheme molokai
 set number
