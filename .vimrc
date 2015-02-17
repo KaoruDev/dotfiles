@@ -49,6 +49,7 @@ endif
 " Handlebars Syntax
 Plugin 'mustache/vim-mustache-handlebars'
 au BufReadPost *.hbs set filetype=html.mustache syntax=html.mustache
+au BufReadPost *.ejs set filetype=html
 
 " multi-cursor
 Plugin 'terryma/vim-multiple-cursors'
