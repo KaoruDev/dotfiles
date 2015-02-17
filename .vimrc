@@ -16,6 +16,9 @@ imap jj <Esc>
 " Map leader key to ,
 let mapleader = ","
 
+" Close Buffer but not pane
+nmap <leader>d :b#<bar>bd#<CR>
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
