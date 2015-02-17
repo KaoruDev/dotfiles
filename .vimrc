@@ -29,6 +29,10 @@ Plugin 'gmarik/Vundle.vim'
 set rtp+=~/.fzf
 nmap f :FZF<Enter>
 
+" Handlebars Syntax
+Plugin 'mustache/vim-mustache-handlebars'
+au BufReadPost *.hbs set filetype=html.mustache syntax=html.mustache
+
 " multi-cursor
 Plugin 'terryma/vim-multiple-cursors'
 
