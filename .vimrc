@@ -9,6 +9,7 @@ set hlsearch
 set tabstop=2 shiftwidth=2 expandtab smartindent
 set nowrap
 set nowritebackup " Disabled so gulp doesn't rewatch things twice, vim has it on to reduce risk of data loss on save
+set backspace=2 " fix weird VIM 7.4 backspace behavior
 
 " map jj to esc
 imap jj <Esc>
