@@ -11,14 +11,8 @@ set nowrap
 set nowritebackup " Disabled so gulp doesn't rewatch things twice, vim has it on to reduce risk of data loss on save
 set backspace=2 " fix weird VIM 7.4 backspace behavior
 
-" map jj to esc
-imap jj <Esc>
-
 " Map leader key to ,
 let mapleader = ","
-
-" Close Buffer but not pane
-nmap <leader>d :b#<bar>bd#<CR>
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -105,6 +99,15 @@ nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
+
+" map jj to esc
+imap jj <Esc>
+
+" Close Buffer but not pane
+nmap <leader>w :b#<bar>bd#<CR>
+nmap <C-j> 10j
+nmap <C-k> 10k
+imap <C-d> <esc>dBi
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
