@@ -22,6 +22,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " Setup fuzzy search
 set rtp+=~/.fzf
+let g:fzf_source = 'find . -type f | grep -v "node_modules/" | grep -v "\.git/" | grep -v "bower_components/"'
 nmap f :FZF<Enter>
 
 " The Silver Searcher
