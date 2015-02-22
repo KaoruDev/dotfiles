@@ -22,8 +22,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " Setup fuzzy search
 set rtp+=~/.fzf
-let g:fzf_source = 'find . -type f | grep -v "node_modules/" | grep -v "\.git/" | grep -v "bower_components/"'
-nmap f :FZF<Enter>
+nmap f :call fzf#run({'source': 'find . -type f -not -path "*node_modules*" -not -path "*bower_components*" -not -path "*.git*"' })<Enter>
 
 " The Silver Searcher
 if executable('ag')
@@ -66,7 +65,6 @@ Bundle 'bling/vim-airline'
 
 " Enable tabline extension
 let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " # of splits (default)
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
