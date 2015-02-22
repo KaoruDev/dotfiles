@@ -22,7 +22,10 @@ Plugin 'gmarik/Vundle.vim'
 
 " Setup fuzzy search
 set rtp+=~/.fzf
-nmap f :call fzf#run({'source': 'find . -type f -not -path "*node_modules*" -not -path "*bower_components*" -not -path "*.git*"' })<Enter>
+nmap f :call fzf#run({
+ \  'source': 'find . -type f -not -path "*node_modules*" -not -path "*bower_components*" -not -path "*.git*"',
+ \  'sink': 'edit'
+ \  })<Enter>
 
 " The Silver Searcher
 if executable('ag')
