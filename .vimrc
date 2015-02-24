@@ -23,7 +23,7 @@ Plugin 'gmarik/Vundle.vim'
 " Setup fuzzy search
 set rtp+=~/.fzf
 nmap f :call fzf#run({
- \  'source': 'find . -type f -not -path "*node_modules*" -not -path "*bower_components*" -not -path "*.git*"',
+ \  'source': 'find . -type f -not -path "*node_modules*" -not -path "*bower_components*" -not -path "*.git*" -not -path "*sass-cache*"',
  \  'sink': 'edit'
  \  })<Enter>
 
