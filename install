@@ -2,6 +2,7 @@
 
 echo 'Linking vimrc file...'
 ln -s .vimrc ~/.vimrc
+ln -s .tmux.conf ~/.tmux.conf
 
 echo 'Installing Vundle...'
 mkdir -p ~/.vim/bundle
