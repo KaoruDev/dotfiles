@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo 'Linking vimrc file...'
+ln -s .vimrc ~/.vimrc
+
+echo 'Installing Vundle...'
+mkdir -p ~/.vim/bundle
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+echo 'Installing molokai color theme...'
+mkdir -p ~/.vim/colors
+git clone https://github.com/tomasr/molokai.git ~/molokai
+mv ~/molokai/colors/molokai.vim ~/.vim/colors
+rm -rf ~/molokai
+
+echo 'Installing silver searcher...'
+sudo apt-get install silversearcher-ag
+
+echo 'Installing fzf...'
+git clone https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
+
