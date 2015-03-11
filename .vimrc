@@ -77,10 +77,11 @@ Plugin 'mattn/emmet-vim'
 let g:user_emmet_expandabbr_key = '<S-tab>'
 
 " tab indentation lines
-Plugin 'Yggdroot/indentLine'
-let g:indentLine_loaded = 0
+"let g:indentLine_loaded = 0
+"let g:indentLine_char = '|'
+"Plugin 'Yggdroot/indentLine'
 
-" Plugin to help comment blocks
+" Plugin to help comment block
 Plugin 'scrooloose/nerdcommenter'
 
 " Plugin for the nifty status bar
