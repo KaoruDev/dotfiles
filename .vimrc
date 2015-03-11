@@ -27,6 +27,9 @@ nmap <silent> <c-l> :wincmd l<CR>
 " map jj to esc
 imap jj <Esc>
 
+" toggle between paste modes
+nnoremap <C-p> :set invpaste paste?<CR>
+
 " Close Buffer but not pane
 nmap <leader>w :b#<bar>bd#<CR>
 nmap <C-j> 10j
@@ -100,6 +103,8 @@ nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
 nmap <leader>3 <Plug>AirlineSelectTab3
 nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader><tab> :bn<Enter>
 nmap <leader><s-tab> :bp<Enter>
 
