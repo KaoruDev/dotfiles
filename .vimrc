@@ -72,9 +72,6 @@ au BufReadPost *.hbs set filetype=html.mustache syntax=html.mustache
 au BufReadPost *.ejs set filetype=html
 au BufReadPost *.jst set filetype=html
 
-" multi-cursor
-Plugin 'terryma/vim-multiple-cursors'
-
 " emmet plugin for css / html
 Plugin 'mattn/emmet-vim'
 let g:user_emmet_expandabbr_key = '<S-tab>'
@@ -121,6 +118,11 @@ endif
 " Coffee Script syntax highlighting
 Plugin 'kchmck/vim-coffee-script'
 au BufReadPost *.coffee set filetype=coffee
+
+" NerdTree
+Plugin 'scrooloose/nerdtree'
+map <C-t> :NERDTreeToggle<CR>
+let g:NERDTreeHijackNetrw=0
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
