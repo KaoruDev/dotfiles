@@ -120,6 +120,7 @@ endif
 
 " Coffee Script syntax highlighting
 Plugin 'kchmck/vim-coffee-script'
+au BufReadPost *.coffee set filetype=coffee
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
