@@ -32,9 +32,9 @@ nnoremap <C-p> :set invpaste paste?<CR>
 
 " Close Buffer but not pane
 nmap <leader>w :b#<bar>bd#<CR>
-nmap <C-j> 10j
-nmap <C-k> 10k
-imap <C-d> <esc>dBi
+nmap <S-j> 10j
+nmap <S-k> 10k
+imap <C-d> <esc>ldBi
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -75,6 +75,10 @@ au BufReadPost *.jst set filetype=html
 " emmet plugin for css / html
 Plugin 'mattn/emmet-vim'
 let g:user_emmet_expandabbr_key = '<S-tab>'
+
+Plugin 'tpope/vim-haml'
+au BufReadPost *.haml set filetype=haml
+au BufReadPost *.hamlc set filetype=haml
 
 "tab indentation lines
 let g:indentLine_char = '|'
@@ -123,6 +127,18 @@ au BufReadPost *.coffee set filetype=coffee
 Plugin 'scrooloose/nerdtree'
 map <C-t> :NERDTreeToggle<CR>
 let g:NERDTreeHijackNetrw=0
+
+" Syntastic
+Plugin 'scrooloose/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
