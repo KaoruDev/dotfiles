@@ -32,6 +32,7 @@ nnoremap <C-p> :set invpaste paste?<CR>
 
 " Close Buffer but not pane
 nmap <leader>w :b#<bar>bd#<CR>
+noremap <leader> <S-j>
 nmap <S-j> 10j
 nmap <S-k> 10k
 imap <C-d> <esc>ldBi
