@@ -1,3 +1,11 @@
 {
-  "preset": "airbnb"
+  "preset": "airbnb",
+  "requireCamelCaseOrUpperCaseIdentifiers": "ignoreProperties",
+  "requireSpacesInAnonymousFunctionExpression": {
+    "beforeOpeningRoundBrace": true,
+    "beforeOpeningCurlyBrace": true
+  },
+  "disallowSpacesInAnonymousFunctionExpression": null,
+  "disallowSpacesInFunctionExpression": null,
+  "esnext": true
 }

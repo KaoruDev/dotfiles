@@ -13,7 +13,7 @@ set backspace=2 " fix weird VIM 7.4 backspace behavior
 set cursorline
 
 " Map leader key to ,
-let mapleader = ","
+let mapleader = "'"
 
 " Erase white space on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -32,7 +32,7 @@ nnoremap <C-p> :set invpaste paste?<CR>
 
 " Close Buffer but not pane
 nmap <leader>w :b#<bar>bd#<CR>
-noremap <leader> <S-j>
+noremap <leader>j <S-j>
 nmap <S-j> 10j
 nmap <S-k> 10k
 imap <C-d> <esc>ldBi
@@ -136,6 +136,8 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+let g:syntastic_sass_checkers = []
+let g:syntastic_scss_checkers = []
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1

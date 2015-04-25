@@ -1,5 +1,11 @@
 {
   "undef": true,
   "unused": true,
-  "predef": [ "$", "Backbone", "Marionette", "_", "window", "document", "console" ]
+  "browser": true,
+  "mocha": true,
+  "node": true,
+  "esnext": true,
+  "predef": {
+    "expect": true
+  }
 }
