@@ -11,6 +11,7 @@ set nowrap
 set nowritebackup " Disabled so gulp doesn't rewatch things twice, vim has it on to reduce risk of data loss on save
 set backspace=2 " fix weird VIM 7.4 backspace behavior
 set cursorline
+set conceallevel=0 " reveals double quotes when viewing json
 
 " Map leader key to ,
 let mapleader = "'"
