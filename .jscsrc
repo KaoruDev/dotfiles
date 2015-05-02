@@ -7,5 +7,6 @@
   },
   "disallowSpacesInAnonymousFunctionExpression": null,
   "disallowSpacesInFunctionExpression": null,
-  "esnext": true
+  "esnext": true,
+  "disallowQuotedKeysInObjects": null
 }

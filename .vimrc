@@ -11,7 +11,7 @@ set nowrap
 set nowritebackup " Disabled so gulp doesn't rewatch things twice, vim has it on to reduce risk of data loss on save
 set backspace=2 " fix weird VIM 7.4 backspace behavior
 set cursorline
-set conceallevel=0 " reveals double quotes when viewing json
+set noswapfile
 
 " Map leader key to ,
 let mapleader = "'"
@@ -68,6 +68,17 @@ if executable('ag')
 
 endif
 
+" Json Syntax
+Plugin 'elzr/vim-json'
+au! BufRead,BufNewFile *.json set filetype=json
+augroup json_autocmd
+  autocmd!
+  autocmd FileType json set autoindent
+  autocmd FileType json set textwidth=78 shiftwidth=2
+  autocmd FileType json set softtabstop=2 tabstop=8
+  autocmd FileType json set expandtab
+augroup END
+
 " Handlebars Syntax
 Plugin 'mustache/vim-mustache-handlebars'
 au BufReadPost *.hbs set filetype=html.mustache syntax=html.mustache
@@ -84,6 +95,8 @@ au BufReadPost *.hamlc set filetype=haml
 
 "tab indentation lines
 let g:indentLine_char = '|'
+" fix the json coneal
+let g:indentLine_noConcealCursor=""
 Plugin 'Yggdroot/indentLine'
 
 " Plugin to help comment block
@@ -143,6 +156,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
+
+" ignore certain html rules
+let g:syntastic_html_tidy_ignore_errors = [
+    \   '<img> escaping malformed URI reference'
+    \ ]
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
