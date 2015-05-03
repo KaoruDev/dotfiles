@@ -7,7 +7,7 @@
   },
   "disallowSpacesInAnonymousFunctionExpression": null,
   "disallowSpacesInFunctionExpression": null,
-  "disallowQuotedKeysInObjects": null
+  "disallowQuotedKeysInObjects": null,
   "esnext": true,
   "safeContextKeyword": null
 }
