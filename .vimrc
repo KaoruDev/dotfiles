@@ -162,6 +162,9 @@ let g:syntastic_html_tidy_ignore_errors = [
     \   '<img> escaping malformed URI reference'
     \ ]
 
+let g:syntastic_eruby_ruby_quiet_messages =
+    \ {'regex': 'possibly useless use of a variable in void context'}
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
