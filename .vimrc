@@ -160,7 +160,7 @@ let g:syntastic_check_on_wq = 1
 " ignore certain html rules
 let g:syntastic_html_tidy_ignore_errors = [
     \   'escaping malformed URI reference',
-    \   'trimming empty <i>',
+    \   'trimming empty',
     \   'proprietary attribute "NULL"'
     \ ]
 
