@@ -159,7 +159,7 @@ let g:syntastic_check_on_wq = 1
 
 " ignore certain html rules
 let g:syntastic_html_tidy_ignore_errors = [
-    \   '<img> escaping malformed URI reference'
+    \   'escaping malformed URI reference'
     \ ]
 
 let g:syntastic_eruby_ruby_quiet_messages =
