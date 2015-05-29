@@ -149,6 +149,9 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+" Toggle syntastic checker
+map <C-c> :SyntasticToggleMode<CR>
+
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
 let g:syntastic_sass_checkers = []
 let g:syntastic_scss_checkers = []
@@ -162,7 +165,9 @@ let g:syntastic_html_tidy_ignore_errors = [
     \   'escaping malformed URI reference',
     \   'trimming empty',
     \   'proprietary attribute "NULL"',
-    \   'attribute "method" has invalid value'
+    \   'attribute "method" has invalid value',
+    \   'missing </a> before <div>',
+    \   'discarding unexpected </a>'
     \ ]
 
 let g:syntastic_eruby_ruby_quiet_messages = [
