@@ -12,6 +12,7 @@ set nowritebackup " Disabled so gulp doesn't rewatch things twice, vim has it on
 set backspace=2 " fix weird VIM 7.4 backspace behavior
 set cursorline
 set noswapfile
+set re=1
 
 " Map leader key to ,
 let mapleader = "'"
@@ -99,6 +100,8 @@ let g:indentLine_char = '|'
 let g:indentLine_noConcealCursor=""
 Plugin 'Yggdroot/indentLine'
 
+nmap <C-i> :IndentLinesToggle<CR>
+
 " Plugin to help comment block
 Plugin 'scrooloose/nerdcommenter'
 
@@ -168,11 +171,6 @@ let g:syntastic_html_tidy_ignore_errors = [
     \   'attribute "method" has invalid value',
     \   'missing </a> before <div>',
     \   'discarding unexpected </a>'
-    \ ]
-
-let g:syntastic_eruby_ruby_quiet_messages = [
-    \ 'possibly useless use of a variable in void context',
-    \ 'ambiguous first argument'
     \ ]
 
 " All of your Plugins must be added before the following line
