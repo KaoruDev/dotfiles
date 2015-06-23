@@ -173,6 +173,13 @@ let g:syntastic_html_tidy_ignore_errors = [
     \   'discarding unexpected </a>'
     \ ]
 
+" Pry shortcut
+nmap <leader>pry orequire('pry');binding.pry<ESC>
+" debugger shortcut
+nmap <leader>debug odebugger;<ESC>
+" console.log shortcut
+nmap <leader>log oconsole.log(;<ESC>
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
