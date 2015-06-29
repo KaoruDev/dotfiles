@@ -179,6 +179,8 @@ nmap <leader>pry orequire('pry');binding.pry<ESC>
 nmap <leader>debug odebugger;<ESC>
 " console.log shortcut
 nmap <leader>log oconsole.log(;<ESC>
+" number toogle
+nmap <leader>N :set invnumber<CR>
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
