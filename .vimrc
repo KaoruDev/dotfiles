@@ -175,6 +175,8 @@ let g:syntastic_html_tidy_ignore_errors = [
 
 " Pry shortcut
 nmap <leader>pry orequire('pry');binding.pry<ESC>
+" Awesome Print shortcut
+nmap <leader>ap orequire('awesome_print');ap
 " debugger shortcut
 nmap <leader>debug odebugger;<ESC>
 " console.log shortcut
