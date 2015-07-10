@@ -173,6 +173,9 @@ let g:syntastic_html_tidy_ignore_errors = [
     \   'discarding unexpected </a>'
     \ ]
 
+let g:syntastic_eruby_ruby_quiet_messages =
+    \ {'regex': 'possibly useless use of a variable in void context'}
+
 " Pry shortcut
 nmap <leader>pry orequire('pry');binding.pry<ESC>
 " Awesome Print shortcut
