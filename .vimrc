@@ -174,7 +174,7 @@ let g:syntastic_html_tidy_ignore_errors = [
     \ ]
 
 let g:syntastic_eruby_ruby_quiet_messages =
-    \ {'regex': 'possibly useless use of a variable in void context'}
+    \ {'regex': 'possibly useless use of'}
 
 " Pry shortcut
 nmap <leader>pry orequire('pry');binding.pry<ESC>
