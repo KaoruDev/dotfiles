@@ -1,7 +1,7 @@
 set nocompatible
 " Let VIM know the terminal can support 256 colors
 set t_Co=256
-filetype plugin on
+filetype plugin off
 " colorscheme pencil
 set number
 syntax on
@@ -88,6 +88,9 @@ au BufReadPost *.jst set filetype=html
 
 " Elixir Syntax
 Plugin 'elixir-lang/vim-elixir'
+au BufReadPost *.ex set filetype=elixir
+au BufReadPost *.exs set filetype=elixir
+au BufReadPost *.eex set filetype=elixir
 
 " emmet plugin for css / html
 Plugin 'mattn/emmet-vim'
