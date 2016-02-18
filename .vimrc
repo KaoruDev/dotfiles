@@ -2,7 +2,7 @@ set nocompatible
 " Let VIM know the terminal can support 256 colors
 set t_Co=256
 filetype plugin on
-colorscheme molokai
+" colorscheme pencil
 set number
 syntax on
 set hlsearch
@@ -86,6 +86,9 @@ au BufReadPost *.hbs set filetype=html.mustache syntax=html.mustache
 au BufReadPost *.ejs set filetype=html
 au BufReadPost *.jst set filetype=html
 
+" Elixir Syntax
+Plugin 'elixir-lang/vim-elixir'
+
 " emmet plugin for css / html
 Plugin 'mattn/emmet-vim'
 let g:user_emmet_expandabbr_key = '<S-tab>'
@@ -145,6 +148,11 @@ au BufReadPost *.coffee set filetype=coffee
 Plugin 'scrooloose/nerdtree'
 map <C-t> :NERDTreeToggle<CR>
 let g:NERDTreeHijackNetrw=0
+
+" Pencil Color scheme
+Plugin 'reedes/vim-colors-pencil'
+set background=light " for pencil colorscheme
+autocmd VimEnter * colorscheme pencil
 
 " Syntastic
 Plugin 'scrooloose/syntastic'
