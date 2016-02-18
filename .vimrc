@@ -112,7 +112,8 @@ nmap <C-i> :IndentLinesToggle<CR>
 Plugin 'scrooloose/nerdcommenter'
 
 " Plugin for the nifty status bar
-Bundle 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Enable tabline extension
 let g:airline#extensions#tabline#enabled = 1
