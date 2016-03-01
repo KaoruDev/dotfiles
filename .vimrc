@@ -13,6 +13,8 @@ set backspace=2 " fix weird VIM 7.4 backspace behavior
 set cursorline
 set noswapfile
 set re=1
+set textwidth=80
+set colorcolumn=+1
 
 " Map leader key to ,
 let mapleader = "'"
@@ -66,6 +68,8 @@ if executable('ag')
   " bind \ (backward slash) to grep shortcut
   command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
   nnoremap \ :Ag<SPACE>
+  " bind K to grep word under cursor
+  nnoremap <C-\> :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 endif
 
@@ -198,6 +202,17 @@ nmap <leader>debug odebugger;<ESC>
 nmap <leader>log oconsole.log(;<ESC>
 " number toogle
 nmap <leader>N :set invnumber<CR>
+
+" Run rspec from vim
+Plugin 'thoughtbot/vim-rspec'
+
+let g:rspec_command = "!bundle exec rspec --format documentation {spec}"
+let g:rspec_runner = "os_x_iterm2"
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
