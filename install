@@ -12,6 +12,10 @@ ln -s ~/dotfiles/.jshintrc ~/.jshintrc
 echo 'Linking jscsrc file...'
 ln -s ~/dotfiles/.jscsrc ~/.jscsrc
 
+echo 'Linking .gitignore file...'
+ln -s ~/dotfiles/.gitignore ~/.gitignore
+git config --global core.excludesfile '~/.gitignore'
+
 echo 'Installing Vundle...'
 mkdir -p ~/.vim/bundle
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim

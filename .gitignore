@@ -1,0 +1,10 @@
+# MacOSX files
+.DS_Store
+
+# Silver Searcher configs
+.agignore
+
+# vim terminal buffers
+*.swp
+*.swo
+
