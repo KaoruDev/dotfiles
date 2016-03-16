@@ -17,7 +17,7 @@ set textwidth=80
 set colorcolumn=+1
 
 " Map leader key to ,
-let mapleader = "'"
+let mapleader = "\<Space>"
 
 " Erase white space on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -27,6 +27,11 @@ nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
+
+" Map Window Resizes
+map <leader>h <C-w>\|
+map <leader>v <C-w>_
+map <leader>e <C-w>=
 
 " map jj to esc
 imap jj <Esc>
@@ -49,9 +54,23 @@ Plugin 'gmarik/Vundle.vim'
 
 " Setup fuzzy search
 set rtp+=~/.fzf
-nmap f :call fzf#run({
- \  'source': 'find . -type f -not -path "*node_modules*" -not -path "*bower_components*" -not -path "*.git*" -not -path "*sass-cache*"',
+nmap ff :call fzf#run({
+ \  'source': 'find . -type f -not -path "*node_modules*" -not -path "*bower_components*" -not -path "*.git*" -not -path "*sass-cache*" -not -path ".tmp"',
  \  'sink': 'edit'
+ \  })<Enter>
+
+" Opens file Vertically
+nmap fv :call fzf#run({
+ \  'source': 'find . -type f -not -path "*node_modules*" -not -path "*bower_components*" -not -path "*.git*" -not -path "*sass-cache*" -not -path ".tmp"',
+ \  'down': '40%',
+ \  'sink': 'botright split' })<CR>
+ \  })<Enter>
+
+" Opens file Horizontal
+nmap fh :call fzf#run({
+ \  'source': 'find . -type f -not -path "*node_modules*" -not -path "*bower_components*" -not -path "*.git*" -not -path "*sass-cache*" -not -path ".tmp"',
+ \  'sink': 'vertical botright split',
+ \  'right': winwidth('.') / 2,
  \  })<Enter>
 
 " The Silver Searcher
@@ -206,7 +225,7 @@ nmap <leader>N :set invnumber<CR>
 " Run rspec from vim
 Plugin 'thoughtbot/vim-rspec'
 
-let g:rspec_command = "!bundle exec rspec --format documentation {spec}"
+let g:rspec_command = '!bundle exec rspec --format documentation {spec}'
 let g:rspec_runner = "os_x_iterm2"
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
