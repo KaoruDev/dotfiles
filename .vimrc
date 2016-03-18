@@ -191,7 +191,6 @@ set statusline+=%*
 map <C-c> :SyntasticToggleMode<CR>
 
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
-let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_sass_checkers = []
 let g:syntastic_scss_checkers = []
 let g:syntastic_always_populate_loc_list = 1
@@ -238,3 +237,8 @@ map <Leader>a :call RunAllSpecs()<CR>
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+let b:thisdir=expand("%:p:h")
+let b:vim=b:thisdir."/.vim"
+if (filereadable(b:vim))
+  execute "source ".b:vim
+endif
