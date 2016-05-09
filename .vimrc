@@ -171,6 +171,10 @@ endif
 Plugin 'kchmck/vim-coffee-script'
 au BufReadPost *.coffee set filetype=coffee
 
+" Jade / Pug syntax highlighting
+Plugin 'digitaltoad/vim-pug'
+au BufReadPost *.jade set filetype=coffee
+
 " NerdTree
 Plugin 'scrooloose/nerdtree'
 map <C-t> :NERDTreeToggle<CR>
