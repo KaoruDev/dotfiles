@@ -15,6 +15,7 @@ set noswapfile
 set re=1
 set textwidth=80
 set colorcolumn=+1
+set synmaxcol=200
 
 " Map leader key to ,
 let mapleader = "\<Space>"
@@ -174,6 +175,10 @@ au BufReadPost *.coffee set filetype=coffee
 " Jade / Pug syntax highlighting
 Plugin 'digitaltoad/vim-pug'
 au BufReadPost *.jade set filetype=coffee
+
+" JSX syntax highlighting
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 " NerdTree
 Plugin 'scrooloose/nerdtree'
