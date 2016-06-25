@@ -12,7 +12,6 @@ set nowritebackup " Disabled so gulp doesn't rewatch things twice, vim has it on
 set backspace=2 " fix weird VIM 7.4 backspace behavior
 set cursorline
 set noswapfile
-set re=1
 set textwidth=80
 set colorcolumn=+1
 set synmaxcol=200
