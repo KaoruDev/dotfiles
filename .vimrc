@@ -2,7 +2,6 @@ set nocompatible
 " Let VIM know the terminal can support 256 colors
 set t_Co=256
 filetype plugin off
-" colorscheme pencil
 set number
 syntax on
 set hlsearch
@@ -15,6 +14,7 @@ set noswapfile
 set textwidth=80
 set colorcolumn=+1
 set synmaxcol=200
+set re=1 " Used to speed up syntax for ruby
 
 " Map leader key to ,
 let mapleader = "\<Space>"
