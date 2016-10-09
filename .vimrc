@@ -173,8 +173,9 @@ au BufReadPost *.coffee set filetype=coffee
 
 " Jade / Pug syntax highlighting
 Plugin 'digitaltoad/vim-pug'
-au BufReadPost *.jade set filetype=coffee
+au BufReadPost *.jade set filetype=pug
 
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " JSX syntax highlighting
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
@@ -198,7 +199,7 @@ set statusline+=%*
 " Toggle syntastic checker
 map <C-c> :SyntasticToggleMode<CR>
 
-let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+let g:syntastic_javascript_checkers = ['eslint', 'jscs']
 let g:syntastic_sass_checkers = []
 let g:syntastic_scss_checkers = []
 let g:syntastic_always_populate_loc_list = 1

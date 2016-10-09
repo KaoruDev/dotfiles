@@ -6,8 +6,8 @@ ln -s ~/dotfiles/.vimrc ~/.vimrc
 echo 'Linking tmux configs file...'
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 
-echo 'Linking jshint file...'
-ln -s ~/dotfiles/.jshintrc ~/.jshintrc
+echo 'Linking eslint file...'
+ln -s ~/dotfiles/.eslint.json ~/.eslint.json
 
 echo 'Linking jscsrc file...'
 ln -s ~/dotfiles/.jscsrc ~/.jscsrc
@@ -26,8 +26,11 @@ git clone https://github.com/tomasr/molokai.git ~/molokai
 mv ~/molokai/colors/molokai.vim ~/.vim/colors
 rm -rf ~/molokai
 
+echo 'Installing homebrew...'
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 echo 'Installing silver searcher...'
-sudo apt-get install silversearcher-ag
+brew install the_silver_searcher
 
 echo 'Installing fzf...'
 git clone https://github.com/junegunn/fzf.git ~/.fzf

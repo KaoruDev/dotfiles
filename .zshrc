@@ -93,9 +93,9 @@ alias rs="rails server"
 alias rc="rails console"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="`pwd`/node_modules/.bin:$PATH"
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
-eval "$(docker-machine env default)"
 export PATH="./bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
