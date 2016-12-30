@@ -88,6 +88,9 @@ source $ZSH/oh-my-zsh.sh
 #
 alias lock="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
 
+# Sublime shortcut
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+
 # Rails shortcuts
 alias rs="rails server"
 alias rc="rails console"
@@ -97,6 +100,7 @@ export PATH="`pwd`/node_modules/.bin:$PATH"
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 export PATH="./bin:$PATH"
+export JAVA_HOME=`/usr/libexec/java_home`
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
