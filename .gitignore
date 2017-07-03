@@ -13,3 +13,5 @@ node_modules/
 # vim custom files
 .vim
 
+# ignore intellij settings
+.idea/

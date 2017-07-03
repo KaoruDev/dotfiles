@@ -95,10 +95,10 @@ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias rs="rails server"
 alias rc="rails console"
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="`pwd`/node_modules/.bin:$PATH"
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="`pwd`/node_modules/.bin:$PATH"
 export PATH="./bin:$PATH"
 export JAVA_HOME=`/usr/libexec/java_home`
 
