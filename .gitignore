@@ -1,5 +1,6 @@
 # Node Files
 node_modules/
+.node-version
 
 # MacOSX files
 .DS_Store
