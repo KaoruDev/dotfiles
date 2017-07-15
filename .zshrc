@@ -104,3 +104,12 @@ export JAVA_HOME=`/usr/libexec/java_home`
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+encrypt() {
+  openssl aes-256-cbc -a -salt -in $1 -out "$1.enc"
+}
+
+decrypt() {
+  filename=$1
+  decrypted_filname=${filename%.enc}
+  openssl aes-256-cbc -a -salt -d -in $filename -out $decrypted_filname
+}
