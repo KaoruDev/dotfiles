@@ -55,20 +55,20 @@ Plugin 'gmarik/Vundle.vim'
 " Setup fuzzy search
 set rtp+=~/.fzf
 nmap ff :call fzf#run({
- \  'source': 'find . -type f -not -path "*node_modules*" -not -path "*bower_components*" -not -path "*.git*" -not -path "*sass-cache*" -not -path ".tmp"',
+ \  'source': 'git ls-files --exclude-standard --others --cached',
  \  'sink': 'edit'
  \  })<Enter>
 
 " Opens file Vertically
 nmap fv :call fzf#run({
- \  'source': 'find . -type f -not -path "*node_modules*" -not -path "*bower_components*" -not -path "*.git*" -not -path "*sass-cache*" -not -path ".tmp"',
+ \  'source': 'git ls-files --exclude-standard --others --cached',
  \  'down': '40%',
  \  'sink': 'botright split' })<CR>
  \  })<Enter>
 
 " Opens file Horizontal
 nmap fh :call fzf#run({
- \  'source': 'find . -type f -not -path "*node_modules*" -not -path "*bower_components*" -not -path "*.git*" -not -path "*sass-cache*" -not -path ".tmp"',
+ \  'source': 'git ls-files --exclude-standard --others --cached',
  \  'sink': 'vertical botright split',
  \  'right': winwidth('.') / 2,
  \  })<Enter>
