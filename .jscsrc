@@ -8,6 +8,5 @@
   "disallowSpacesInAnonymousFunctionExpression": null,
   "disallowSpacesInFunctionExpression": null,
   "disallowQuotedKeysInObjects": null,
-  "esnext": true,
   "safeContextKeyword": null
 }

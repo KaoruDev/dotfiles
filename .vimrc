@@ -46,13 +46,12 @@ nmap <S-j> 10j
 nmap <S-k> 10k
 imap <C-d> <esc>ldBi
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" initialize vim-plug junegunn/vim-plug
+call plug#begin('~/.vim/plugged')
+let g:fzf_layout = { 'down': '~40%' }
 
 " Setup fuzzy search
+Plug 'junegunn/fzf.vim'
 set rtp+=~/.fzf
 nmap ff :call fzf#run({
  \  'source': 'git ls-files --exclude-standard --others --cached',
@@ -93,7 +92,7 @@ if executable('ag')
 endif
 
 " Json Syntax
-Plugin 'elzr/vim-json'
+Plug 'elzr/vim-json'
 au! BufRead,BufNewFile *.json set filetype=json
 augroup json_autocmd
   autocmd!
@@ -104,22 +103,22 @@ augroup json_autocmd
 augroup END
 
 " Handlebars Syntax
-Plugin 'mustache/vim-mustache-handlebars'
+Plug 'mustache/vim-mustache-handlebars'
 au BufReadPost *.hbs set filetype=html.mustache syntax=html.mustache
 au BufReadPost *.ejs set filetype=html
 au BufReadPost *.jst set filetype=html
 
 " Elixir Syntax
-Plugin 'elixir-lang/vim-elixir'
+Plug 'elixir-lang/vim-elixir'
 au BufReadPost *.ex set filetype=elixir
 au BufReadPost *.exs set filetype=elixir
 au BufReadPost *.eex set filetype=elixir
 
 " emmet plugin for css / html
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 let g:user_emmet_expandabbr_key = '<S-tab>'
 
-Plugin 'tpope/vim-haml'
+Plug 'tpope/vim-haml'
 au BufReadPost *.haml set filetype=haml
 au BufReadPost *.hamlc set filetype=haml
 
@@ -127,16 +126,16 @@ au BufReadPost *.hamlc set filetype=haml
 let g:indentLine_char = '|'
 " fix the json coneal
 let g:indentLine_noConcealCursor=""
-Plugin 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 
 nmap <C-i> :IndentLinesToggle<CR>
 
-" Plugin to help comment block
-Plugin 'scrooloose/nerdcommenter'
+" Plug to help comment block
+Plug 'scrooloose/nerdcommenter'
 
-" Plugin for the nifty status bar
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" Plug for the nifty status bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Enable tabline extension
 let g:airline#extensions#tabline#enabled = 1
@@ -157,7 +156,7 @@ nmap <leader><tab> :bn<Enter>
 nmap <leader><s-tab> :bp<Enter>
 
 " TMUX line Bottom status bar?
-Plugin 'edkolev/tmuxline.vim'
+Plug 'edkolev/tmuxline.vim'
 let g:airline#extensions#tmuxline#enabled = 1
 let airline#extensions#tmuxline#color_template = 'visual'
 
@@ -168,30 +167,35 @@ if $TERM_PROGRAM =~ "iTerm"
 endif
 
 " Coffee Script syntax highlighting
-Plugin 'kchmck/vim-coffee-script'
+Plug 'kchmck/vim-coffee-script'
 au BufReadPost *.coffee set filetype=coffee
 
 " Jade / Pug syntax highlighting
-Plugin 'digitaltoad/vim-pug'
+Plug 'digitaltoad/vim-pug'
 au BufReadPost *.jade set filetype=pug
 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " JSX syntax highlighting
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+Plug 'isRuslan/vim-es6'
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+Plug 'mxw/vim-jsx'
 
 " NerdTree
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 map <C-t> :NERDTreeToggle<CR>
 let g:NERDTreeHijackNetrw=0
 
+" Jinja syntax highlight
+Plug 'Glench/Vim-Jinja2-Syntax'
+au BufReadPost *.jinja set filetype=jinja
+
 " Pencil Color scheme
-Plugin 'reedes/vim-colors-pencil'
+Plug 'reedes/vim-colors-pencil'
 set background=light " for pencil colorscheme
 autocmd VimEnter * colorscheme pencil
 
 " Syntastic
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -234,7 +238,7 @@ nmap <leader>log oconsole.log(;<ESC>
 nmap <leader>N :set invnumber<CR>
 
 " Run rspec from vim
-Plugin 'thoughtbot/vim-rspec'
+Plug 'thoughtbot/vim-rspec'
 
 let g:rspec_command = '!bundle exec rspec --format documentation {spec}'
 let g:rspec_runner = "os_x_iterm2"
@@ -244,8 +248,8 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+" All of your Plugs must be added before the following line
+call plug#end()
 filetype plugin indent on    " required
 
 let b:thisdir=expand("%:p:h")
