@@ -48,6 +48,8 @@ imap <C-d> <esc>ldBi
 
 " initialize vim-plug junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 let g:fzf_layout = { 'down': '~40%' }
 
 " Setup fuzzy search
