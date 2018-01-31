@@ -46,6 +46,13 @@ nmap <S-j> 10j
 nmap <S-k> 10k
 imap <C-d> <esc>ldBi
 
+" Installs vim-plug automatically
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " initialize vim-plug junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -176,6 +183,9 @@ au BufReadPost *.coffee set filetype=coffee
 Plug 'digitaltoad/vim-pug'
 au BufReadPost *.jade set filetype=pug
 
+" Docker syntax highlighting
+Plug 'ekalinin/Dockerfile.vim'
+
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " JSX syntax highlighting
 Plug 'isRuslan/vim-es6'
@@ -190,11 +200,6 @@ let g:NERDTreeHijackNetrw=0
 " Jinja syntax highlight
 Plug 'Glench/Vim-Jinja2-Syntax'
 au BufReadPost *.jinja set filetype=jinja
-
-" Pencil Color scheme
-Plug 'reedes/vim-colors-pencil'
-set background=light " for pencil colorscheme
-autocmd VimEnter * colorscheme pencil
 
 " Syntastic
 Plug 'scrooloose/syntastic'
@@ -241,6 +246,13 @@ nmap <leader>N :set invnumber<CR>
 
 " Run rspec from vim
 Plug 'thoughtbot/vim-rspec'
+
+" Pencil Color scheme
+Plug 'reedes/vim-colors-pencil'
+set background=light " for pencil colorscheme
+
+"comment this out if have yet to run :PlugInstall
+autocmd VimEnter * colorscheme pencil
 
 let g:rspec_command = '!bundle exec rspec --format documentation {spec}'
 let g:rspec_runner = "os_x_iterm2"

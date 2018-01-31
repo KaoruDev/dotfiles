@@ -113,3 +113,7 @@ decrypt() {
   decrypted_filname=${filename%.enc}
   openssl aes-256-cbc -a -salt -d -in $filename -out $decrypted_filname
 }
+
+# For docker-compose auto completion
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
