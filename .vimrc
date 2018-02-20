@@ -212,6 +212,7 @@ map <C-c> :SyntasticToggleMode<CR>
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_yaml_checkers = ['yamllint']
 let g:syntastic_ruby_rubocop_args = "--force-exclusion"
 let g:syntastic_sass_checkers = []
 let g:syntastic_scss_checkers = []

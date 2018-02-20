@@ -33,6 +33,13 @@ echo 'Installing fzf...'
 brew install fzf
 /usr/local/opt/fzf/install
 
+echo 'Installing python3...'
+brew install python3
+brew postinstall python3
+
+echo 'Installing yamllint...'
+pip3 install yamllint
+
 echo 'Installing vim-plug'
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
