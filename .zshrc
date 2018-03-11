@@ -94,6 +94,7 @@ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 # Rails shortcuts
 alias rs="rails server"
 alias rc="rails console"
+alias gs="git checkout \`git branch | fzf\`"
 
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
