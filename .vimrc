@@ -186,11 +186,8 @@ au BufReadPost *.jade set filetype=pug
 " Docker syntax highlighting
 Plug 'ekalinin/Dockerfile.vim'
 
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " JSX syntax highlighting
-Plug 'isRuslan/vim-es6'
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
 
 " NerdTree
 Plug 'scrooloose/nerdtree'
