@@ -24,3 +24,6 @@ web/.gitignore
 
 # JENV local settings
 .java-version
+
+# Intellij settings
+*.iml

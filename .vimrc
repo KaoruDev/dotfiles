@@ -139,8 +139,10 @@ Plug 'Yggdroot/indentLine'
 
 nmap <C-i> :IndentLinesToggle<CR>
 
-" Plug to help comment block
+" NerdCommenter
 Plug 'scrooloose/nerdcommenter'
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
 
 " Plug for the nifty status bar
 Plug 'vim-airline/vim-airline'
