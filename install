@@ -40,6 +40,13 @@ brew postinstall python3
 echo 'Installing yamllint...'
 pip3 install yamllint
 
+echo 'Installing NeoVim....'
+brew install neovim
+
+echo 'Configuring NeoVim...'
+mkdir -p ~/.config/nvim
+ln -s ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+
 echo 'Installing vim-plug'
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

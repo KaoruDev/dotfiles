@@ -55,30 +55,34 @@ endif
 
 " initialize vim-plug junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
+
+" Setup fuzzy search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 let g:fzf_layout = { 'down': '~40%' }
-
-" Setup fuzzy search
-Plug 'junegunn/fzf.vim'
 set rtp+=~/.fzf
+
 nmap ff :call fzf#run({
  \  'source': 'git ls-files --exclude-standard --others --cached',
- \  'sink': 'edit'
+ \  'window': 'bot 10new',
+ \  'down': '40%',
+ \  'sink': 'edit',
  \  })<Enter>
 
 " Opens file Vertically
 nmap fv :call fzf#run({
  \  'source': 'git ls-files --exclude-standard --others --cached',
+ \  'window': 'bot 10new',
+ \  'sink': 'botright split',
  \  'down': '40%',
- \  'sink': 'botright split' })<CR>
  \  })<Enter>
 
 " Opens file Horizontal
 nmap fh :call fzf#run({
  \  'source': 'git ls-files --exclude-standard --others --cached',
+ \  'window': 'bot 10new',
  \  'sink': 'vertical botright split',
- \  'right': winwidth('.') / 2,
+ \  'right': '40%'
  \  })<Enter>
 
 " The Silver Searcher
@@ -100,6 +104,22 @@ if executable('ag')
 
 endif
 
+" Find and Replace
+Plug 'brooth/far.vim'
+
+" Auto Pairs
+Plug 'jiangmiao/auto-pairs'
+
+" Deoplete - Dark Powered Auto Complete
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
 " Json Syntax
 Plug 'elzr/vim-json'
 au! BufRead,BufNewFile *.json set filetype=json
@@ -112,10 +132,10 @@ augroup json_autocmd
 augroup END
 
 " Handlebars Syntax
-Plug 'mustache/vim-mustache-handlebars'
-au BufReadPost *.hbs set filetype=html.mustache syntax=html.mustache
-au BufReadPost *.ejs set filetype=html
-au BufReadPost *.jst set filetype=html
+" Plug 'mustache/vim-mustache-handlebars'
+" au BufReadPost *.hbs set filetype=html.mustache syntax=html.mustache
+" au BufReadPost *.ejs set filetype=html
+" au BufReadPost *.jst set filetype=html
 
 " Elixir Syntax
 Plug 'elixir-lang/vim-elixir'
@@ -123,13 +143,16 @@ au BufReadPost *.ex set filetype=elixir
 au BufReadPost *.exs set filetype=elixir
 au BufReadPost *.eex set filetype=elixir
 
+" GoLang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 " emmet plugin for css / html
 Plug 'mattn/emmet-vim'
 let g:user_emmet_expandabbr_key = '<S-tab>'
 
-Plug 'tpope/vim-haml'
-au BufReadPost *.haml set filetype=haml
-au BufReadPost *.hamlc set filetype=haml
+" Plug 'tpope/vim-haml'
+" au BufReadPost *.haml set filetype=haml
+" au BufReadPost *.hamlc set filetype=haml
 
 "tab indentation lines
 let g:indentLine_char = '|'
@@ -173,8 +196,8 @@ let airline#extensions#tmuxline#color_template = 'visual'
 
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~ "iTerm"
-   let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-   let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
 
 " Coffee Script syntax highlighting
@@ -237,10 +260,6 @@ let g:syntastic_eruby_ruby_quiet_messages =
 nmap <leader>pry orequire('pry');binding.pry<ESC>
 " Awesome Print shortcut
 nmap <leader>ap orequire('awesome_print');ap
-" debugger shortcut
-nmap <leader>debug odebugger;<ESC>
-" console.log shortcut
-nmap <leader>log oconsole.log(;<ESC>
 " number toogle
 nmap <leader>N :set invnumber<CR>
 
