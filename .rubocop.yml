@@ -1,0 +1,17 @@
+---
+
+## Layouts
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+### Styles
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
