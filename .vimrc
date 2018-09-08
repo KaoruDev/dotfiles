@@ -263,9 +263,6 @@ nmap <leader>ap orequire('awesome_print');ap
 " number toogle
 nmap <leader>N :set invnumber<CR>
 
-" Run rspec from vim
-Plug 'thoughtbot/vim-rspec'
-
 " Pencil Color scheme
 Plug 'reedes/vim-colors-pencil'
 set background=light " for pencil colorscheme
@@ -273,7 +270,10 @@ set background=light " for pencil colorscheme
 "comment this out if have yet to run :PlugInstall
 autocmd VimEnter * colorscheme pencil
 
-let g:rspec_command = '!bundle exec rspec --format documentation {spec}'
+
+" Run rspec from vim
+Plug 'thoughtbot/vim-rspec'
+let g:rspec_command = '!bundle exec rspec {spec}'
 let g:rspec_runner = "os_x_iterm2"
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
