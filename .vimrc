@@ -15,6 +15,7 @@ set textwidth=80
 set colorcolumn=+1
 set synmaxcol=200
 set re=1 " Used to speed up syntax for ruby
+set omnifunc=syntaxcomplete#Complete
 
 " Map leader key to ,
 let mapleader = "\<Space>"
@@ -42,8 +43,8 @@ nnoremap <C-p> :set invpaste paste?<CR>
 " Close Buffer but not pane
 nmap <leader>w :b#<bar>bd#<CR>
 noremap <leader>j <S-j>
-nmap <S-j> 10j
-nmap <S-k> 10k
+nmap <C-j> 10j
+nmap <C-k> 10k
 imap <C-d> <esc>ldBi
 
 " Installs vim-plug automatically
@@ -104,21 +105,8 @@ if executable('ag')
 
 endif
 
-" Find and Replace
-Plug 'brooth/far.vim'
-
 " Auto Pairs
 Plug 'jiangmiao/auto-pairs'
-
-" Deoplete - Dark Powered Auto Complete
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
 
 " Json Syntax
 Plug 'elzr/vim-json'
@@ -130,12 +118,6 @@ augroup json_autocmd
   autocmd FileType json set softtabstop=2 tabstop=8
   autocmd FileType json set expandtab
 augroup END
-
-" Handlebars Syntax
-" Plug 'mustache/vim-mustache-handlebars'
-" au BufReadPost *.hbs set filetype=html.mustache syntax=html.mustache
-" au BufReadPost *.ejs set filetype=html
-" au BufReadPost *.jst set filetype=html
 
 " Elixir Syntax
 Plug 'elixir-lang/vim-elixir'
@@ -150,14 +132,12 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mattn/emmet-vim'
 let g:user_emmet_expandabbr_key = '<S-tab>'
 
-" Plug 'tpope/vim-haml'
-" au BufReadPost *.haml set filetype=haml
-" au BufReadPost *.hamlc set filetype=haml
-
 "tab indentation lines
 let g:indentLine_char = '|'
 " fix the json coneal
 let g:indentLine_noConcealCursor=""
+" show quotes when editing json
+let g:vim_json_syntax_conceal = 0
 Plug 'Yggdroot/indentLine'
 
 nmap <C-i> :IndentLinesToggle<CR>
@@ -200,10 +180,6 @@ if $TERM_PROGRAM =~ "iTerm"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
 
-" Coffee Script syntax highlighting
-Plug 'kchmck/vim-coffee-script'
-au BufReadPost *.coffee set filetype=coffee
-
 " Jade / Pug syntax highlighting
 Plug 'digitaltoad/vim-pug'
 au BufReadPost *.jade set filetype=pug
@@ -218,10 +194,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdtree'
 map <C-t> :NERDTreeToggle<CR>
 let g:NERDTreeHijackNetrw=0
-
-" Jinja syntax highlight
-Plug 'Glench/Vim-Jinja2-Syntax'
-au BufReadPost *.jinja set filetype=jinja
 
 " Syntastic
 Plug 'scrooloose/syntastic'
@@ -270,7 +242,6 @@ set background=light " for pencil colorscheme
 "comment this out if have yet to run :PlugInstall
 autocmd VimEnter * colorscheme pencil
 
-
 " Run rspec from vim
 Plug 'thoughtbot/vim-rspec'
 let g:rspec_command = '!bundle exec rspec {spec}'
@@ -281,12 +252,17 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
+" TODO figure this out: will replace thoughbot's rspec thing
+" Plug 'janko-m/vim-test'
+
 " All of your Plugs must be added before the following line
 call plug#end()
-filetype plugin indent on    " required
+
+filetype plugin indent on " required
 
 let b:thisdir=expand("%:p:h")
 let b:vim=b:thisdir."/.vim"
 if (filereadable(b:vim))
   execute "source ".b:vim
 endif
+
