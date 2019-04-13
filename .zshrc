@@ -96,12 +96,23 @@ alias rs="rails server"
 alias rc="rails console"
 alias gs="git checkout \`git branch | fzf\`"
 
-eval "$(rbenv init -)"
-eval "$(nodenv init -)"
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="`pwd`/node_modules/.bin:$PATH"
-export PATH="./bin:$PATH"
-export JAVA_HOME=`/usr/libexec/java_home`
+# =========== asdf version manager ================
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
+# ==================== GOLANG SPECIFIC ====================
+export ASDFROOT=$HOME/.asdf
+export ASDFINSTALLS=$HOME/.asdf/installs
+export GOPATH=~/code/golang
+GOV=$(asdf current golang | sed -E 's/\(set by.*)//g' | tr -d ' ')
+export GOROOT=$ASDFINSTALLS/golang/$GOV/go/
+
+# eval "$(rbenv init -)"
+# eval "$(nodenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# export PATH="`pwd`/node_modules/.bin:$PATH"
+# export PATH="./bin:$PATH"
+# export JAVA_HOME=`/usr/libexec/java_home`
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
