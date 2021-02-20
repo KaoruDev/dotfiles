@@ -13,7 +13,7 @@ set cursorline
 set noswapfile
 set textwidth=80
 set colorcolumn=+1
-set synmaxcol=200
+set synmaxcol=300
 set re=1 " Used to speed up syntax for ruby
 set omnifunc=syntaxcomplete#Complete
 
@@ -132,6 +132,10 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mattn/emmet-vim'
 let g:user_emmet_expandabbr_key = '<S-tab>'
 
+" Terraform plugin
+Plug 'hashivim/vim-terraform'
+let g:terraform_fmt_on_save=1
+
 "tab indentation lines
 let g:indentLine_char = '|'
 " fix the json coneal
@@ -179,6 +183,9 @@ if $TERM_PROGRAM =~ "iTerm"
   let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
   let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
+
+" Jenkinsfile syntaxs
+au BufNewFile,BufRead,BufReadPost *.Jenkinsfile set filetype=groovy
 
 " Jade / Pug syntax highlighting
 Plug 'digitaltoad/vim-pug'

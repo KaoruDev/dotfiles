@@ -94,6 +94,8 @@ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 # Rails shortcuts
 alias rs="rails server"
 alias rc="rails console"
+
+# Git short cuts
 alias gs="git checkout \`git branch | fzf\`"
 
 # =========== asdf version manager ================
@@ -129,3 +131,4 @@ decrypt() {
 # For docker-compose auto completion
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
+

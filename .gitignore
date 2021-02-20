@@ -17,13 +17,16 @@ node_modules/
 
 # ignore intellij settings
 .idea/
-
-# sift related
-web/.update-linters.sh
-web/.gitignore
+*.iml
 
 # JENV local settings
 .java-version
 
-# Intellij settings
-*.iml
+#asdf versions
+.tool-versions
+
+# Python venv files
+venv/
+
+# Terraform directories
+.terraform/

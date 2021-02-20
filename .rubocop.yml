@@ -1,9 +1,19 @@
 ---
 
-## Layouts
+### Methods
+Metrics/MethodLength:
+  Max: 15
+
+### Layouts
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
+
+Layout/FirstHashElementIndentation:
+  Enabled: false
+
+  Layout/IndentationWidth:
+
 
 ### Styles
 
@@ -14,4 +24,13 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 
 Style/GuardClause:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Style/StringLiterals:
   Enabled: false
