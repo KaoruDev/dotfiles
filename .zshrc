@@ -84,9 +84,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# Mac
-#
-alias lock="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
 
 # Sublime shortcut
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
@@ -98,13 +95,17 @@ alias rc="rails console"
 # Git short cuts
 alias gs="git checkout \`git branch | fzf\`"
 
+export LC_CTYPE="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
 # =========== asdf version manager ================
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
-# ==================== GOLANG SPECIFIC ====================
 export ASDFROOT=$HOME/.asdf
 export ASDFINSTALLS=$HOME/.asdf/installs
+
+# ==================== GOLANG SPECIFIC ====================
 export GOPATH=~/code/golang
 GOV=$(asdf current golang | sed -E 's/\(set by.*)//g' | tr -d ' ')
 export GOROOT=$ASDFINSTALLS/golang/$GOV/go/
@@ -115,6 +116,15 @@ export GOROOT=$ASDFINSTALLS/golang/$GOV/go/
 # export PATH="`pwd`/node_modules/.bin:$PATH"
 # export PATH="./bin:$PATH"
 # export JAVA_HOME=`/usr/libexec/java_home`
+
+# Java Stuff
+# jdk() {
+#       version=$1
+#       unset JAVA_HOME;
+#       export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
+# }
+#
+# jdk 1.8.0
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -131,4 +141,7 @@ decrypt() {
 # For docker-compose auto completion
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
+
+# Allow for ctrl+u (delete everything before cursor)
+bindkey \^U backward-kill-line
 
