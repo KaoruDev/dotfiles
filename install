@@ -1,16 +1,18 @@
 #!/bin/bash
 
+# MUST run from home directory!
+
 echo 'Linking vimrc file...'
 ln -s ~/dotfiles/.vimrc ~/.vimrc
 
 echo 'Linking tmux configs file...'
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 
-echo 'Linking eslint file...'
-ln -s ~/dotfiles/.eslint.json ~/.eslint.json
+# echo 'Linking eslint file...'
+# ln -s ~/dotfiles/.eslint.json ~/.eslint.json
 
-echo 'Linking jscsrc file...'
-ln -s ~/dotfiles/.jscsrc ~/.jscsrc
+# echo 'Linking jscsrc file...'
+# ln -s ~/dotfiles/.jscsrc ~/.jscsrc
 
 echo 'Linking .gitignore file...'
 ln -s ~/dotfiles/.gitignore ~/.gitignore
@@ -45,4 +47,13 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 # https://asdf-vm.com/#/core-manage-asdf
 echo 'Installing asdf version manager'
-brew install asdf
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1
+
+echo 'Installing oh-my-zsh'
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+echo 'Copying over zsh themes'
+cp dotfiles/zsh-themes/*.zsh-theme .oh-my-zsh/themes/
+
+echo 'Copying over .zshrc'
+cp dotfiles/.zshrc .zshrc

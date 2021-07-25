@@ -100,15 +100,14 @@ export LC_ALL="en_US.UTF-8"
 
 # =========== asdf version manager ================
 . $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
 
 export ASDFROOT=$HOME/.asdf
 export ASDFINSTALLS=$HOME/.asdf/installs
 
 # ==================== GOLANG SPECIFIC ====================
-export GOPATH=~/code/golang
-GOV=$(asdf current golang | sed -E 's/\(set by.*)//g' | tr -d ' ')
-export GOROOT=$ASDFINSTALLS/golang/$GOV/go/
+# export GOPATH=~/code/golang
+# GOV=$(asdf current golang | sed -E 's/\(set by.*)//g' | tr -d ' ')
+# export GOROOT=$ASDFINSTALLS/golang/$GOV/go/
 
 # eval "$(rbenv init -)"
 # eval "$(nodenv init -)"
@@ -140,6 +139,7 @@ decrypt() {
 
 # For docker-compose auto completion
 fpath=(~/.zsh/completion $fpath)
+fpath=(${ASDFROOT}/completions $fpath)
 autoload -Uz compinit && compinit -i
 
 # Allow for ctrl+u (delete everything before cursor)
